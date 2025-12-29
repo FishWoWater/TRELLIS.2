@@ -1,3 +1,4 @@
+import os 
 from typing import *
 from transformers import AutoModelForImageSegmentation
 import torch
@@ -7,6 +8,7 @@ from PIL import Image
 
 class BiRefNet:
     def __init__(self, model_name: str = "ZhengPeng7/BiRefNet"):
+        model_name = os.path.expanduser("~/.cache/modelscope/hub/models/AI-ModelScope/RMBG-2___0/")
         self.model = AutoModelForImageSegmentation.from_pretrained(
             model_name, trust_remote_code=True
         )
